@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtualenv
+.venv/
+venv/
+env/
+
+# Model artifacts
+models/*.pt
+models/*.onnx
+models/*.summary.json
+runs/
+demo/*.mp4
+demo/*.json
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# Dataset captures (keep the synthetic stub, ignore real captures)
+dataset/images/raw/
+dataset/manifests/captures.jsonl
+dataset/images/captured/

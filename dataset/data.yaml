@@ -1,0 +1,12 @@
+# Ultralytics YOLO dataset configuration for the glass-under-dispenser detector.
+# Only one class is used: glass.
+path: .  # dataset root, resolved relative to this file
+train: images/train
+val: images/val
+
+names:
+  0: glass
+
+# Suggested capture count (rule of thumb; tune as needed):
+#   >= 400 labelled frames per class for a usable baseline
+#   >= 1500 labelled frames per class for production-grade accuracy

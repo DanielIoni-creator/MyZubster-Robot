@@ -1,0 +1,20 @@
+# Runtime dependencies for the vision module.
+# Pinned to the minimum versions that we have validated against. Newer
+# minor versions are expected to work; we keep the lower bound conservative
+# so the Pi 5 image builder doesn't pull an incompatible build.
+
+# Core computer vision stack.
+numpy>=1.24
+opencv-python>=4.8
+Pillow>=10.0
+
+# YOLO model + training (only required for training and live inference).
+ultralytics>=8.0
+torch>=2.0
+
+# Raspberry Pi camera capture (only required on the Pi).
+# picamera2 is installed via apt on Raspberry Pi OS and is not on PyPI.
+
+# Jupyter notebook export of the training recipe.
+jupyter>=1.0
+nbformat>=5.9
