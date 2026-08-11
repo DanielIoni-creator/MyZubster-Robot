@@ -13,9 +13,16 @@ import sys
 import unittest
 
 # Ensure src/ is on sys.path when tests are run directly.
+# Repository layout: <repo>/tests/ and <repo>/src/ are siblings, so SRC is
+# only one level above the test file (fall back to ../src if that exists,
+# otherwise ../../src for nested layouts).
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-SRC = os.path.join(ROOT, "src")
+CANDIDATES = [
+    os.path.abspath(os.path.join(HERE, "..", "src")),
+    os.path.abspath(os.path.join(HERE, "..", "..", "src")),
+]
+SRC = next((p for p in CANDIDATES if os.path.isdir(os.path.join(p, "vision"))), CANDIDATES[0])
+ROOT = os.path.dirname(SRC)
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
 

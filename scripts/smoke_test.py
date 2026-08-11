@@ -12,8 +12,13 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-SRC = os.path.join(ROOT, "src")
+# scripts/ and src/ are siblings under the repo root in this layout.
+CANDIDATES = [
+    os.path.abspath(os.path.join(HERE, "..", "src")),
+    os.path.abspath(os.path.join(HERE, "..", "..", "src")),
+]
+SRC = next((p for p in CANDIDATES if os.path.isdir(os.path.join(p, "vision"))), CANDIDATES[0])
+ROOT = os.path.dirname(SRC)
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
