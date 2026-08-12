@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Robot Controller - MyZubster</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Robot Giardiniere</h1>
+            <div class="status" id="robotStatus">
+                <span class="dot online"></span>
+                <span>Online</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="controls-grid">
+                <div class="control-card">
+                    <h3>🎮 Joystick</h3>
+                    <div class="joystick-container">
+                        <div class="joystick" id="joystick">
+                            <div class="joystick-thumb" id="joystickThumb"></div>
+                        </div>
+                    </div>
+                    <div class="direction-buttons">
+                        <button class="dir-btn" data-dir="north">⬆️</button>
+                        <button class="dir-btn" data-dir="west">⬅️</button>
+                        <button class="dir-btn" data-dir="south">⬇️</button>
+                        <button class="dir-btn" data-dir="east">➡️</button>
+                    </div>
+                </div>
+
+                <div class="control-card">
+                    <h3>📷 Camera</h3>
+                    <div class="camera-view">
+                        <img id="cameraFeed" src="" alt="Camera Feed">
+                        <button class="btn-capture" onclick="captureImage()">📸 Scatta</button>
+                    </div>
+                </div>
+
+                <div class="control-card">
+                    <h3>📊 Sensori</h3>
+                    <div class="sensors-grid">
+                        <div class="sensor-item">
+                            <span>🔋 Batteria</span>
+                            <span id="batteryLevel">85%</span>
+                        </div>
+                        <div class="sensor-item">
+                            <span>🌡️ Temperatura</span>
+                            <span id="temperature">22.5°C</span>
+                        </div>
+                        <div class="sensor-item">
+                            <span>💧 Umidità</span>
+                            <span id="humidity">65%</span>
+                        </div>
+                        <div class="sensor-item">
+                            <span>☀️ Luce</span>
+                            <span id="light">800 lux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-card mission-card">
+                    <h3>🚀 Missioni</h3>
+                    <div class="mission-control">
+                        <select id="missionSelect">
+                            <option value="monitoring">🔍 Monitoraggio</option>
+                            <option value="watering">💧 Irrigazione</option>
+                            <option value="scanning">📡 Scansione</option>
+                            <option value="harvesting">🌾 Raccolta</option>
+                        </select>
+                        <button class="btn-mission" onclick="startMission()">▶️ Avvia</button>
+                    </div>
+                    <div id="missionStatus" class="mission-status">
+                        Nessuna missione attiva
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/controller.js"></script>
+</body>
+</html>
