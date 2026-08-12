@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 #!/usr/bin/env python3
+>>>>>>> origin/main
 import time
 import RPi.GPIO as GPIO
 
@@ -26,8 +29,12 @@ class PumpController:
 if __name__ == "__main__":
     controller = PumpController()
     try:
+<<<<<<< HEAD
+        controller.test_all_pumps()
+=======
         print("🧪 Test pompe peristaltiche")
         controller.test_all_pumps()
         print("✅ Tutte le pompe funzionano!")
+>>>>>>> origin/main
     finally:
         controller.cleanup()
